@@ -1,0 +1,16 @@
+{
+  "scenarioName": "DictionaryCall",
+  "requiredScenarioState": "Started",
+  "newScenarioState": "FirstState",
+  "request": {
+    "method": "GET",
+    "urlPattern": "https://api.dictionaryapi.dev/api/v2/entries/en/hello"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "dictionary_response_ok.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

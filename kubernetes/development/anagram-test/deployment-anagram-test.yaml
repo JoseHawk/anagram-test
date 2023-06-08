@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anagram-test
+  namespace: anagram-test-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: anagram-test
+  template:
+    metadata:
+      labels:
+        app: anagram-test
+        environment: dev
+        tier: backend
+    spec:
+      imagePullSecrets:
+        - name: docker-hub
+      containers:
+        - name: sgw
+          image: josehawktests/anagram-test:dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8090
+          resources:
+            limits:
+              cpu: 500m
+              memory: 2Gi
+            requests:
+              cpu: 200m
+              memory: 400Mi
+          envFrom:
+            - configMapRef:
+                name: anagram-test-configmap

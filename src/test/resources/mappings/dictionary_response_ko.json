@@ -1,0 +1,16 @@
+{
+  "scenarioName": "DictionaryCall",
+  "requiredScenarioState": "FirstState",
+  "newScenarioState": "Started",
+  "request": {
+    "method": "GET",
+    "urlPattern": "https://api.dictionaryapi.dev/api/v2/entries/en/olleh"
+  },
+  "response": {
+    "status": 404,
+    "bodyFileName": "dictionary_response_ok.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+openapi: 3.0.1
+servers:
+- url: http://localhost:8091/anagram-api
+  description: Generated server url
+paths:
+  /simple:
+    post:
+      tags:
+      - anagram-controller
+      operationId: checkIfSimpleAnagram
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComparisonRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ComparisonResponse'
+  /meaningful:
+    post:
+      tags:
+      - anagram-controller
+      operationId: checkIfMeaningfulAnagram
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComparisonRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MeaningfulComparisonResponse'
+components:
+  schemas:
+    ComparisonRequest:
+      required:
+      - firstWord
+      - secondWord
+      type: object
+      properties:
+        firstWord:
+          type: string
+        secondWord:
+          type: string
+        shouldRemoveSpecialCharacters:
+          type: boolean
+    ComparisonResponse:
+      type: object
+      properties:
+        isAnagram:
+          type: boolean
+    MeaningfulComparisonResponse:
+      type: object
+      properties:
+        isAnagram:
+          type: boolean
+        wordsAreMeaningful:
+          type: boolean

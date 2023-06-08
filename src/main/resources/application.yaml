@@ -1,0 +1,19 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /anagram-api
+
+spring:
+  cloud:
+    config:
+      enabled: false
+
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36} - %msg%n"
+    file: "%d{ISO8601} %magenta([%thread]) %highlight(%-5level) %logger{36} - %msg%n"
+
+dictionary:
+  url: ${DICTIONARY_URL}

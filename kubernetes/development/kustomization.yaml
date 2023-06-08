@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: anagram-test-dev
+
+resources:
+  - namespace.yaml
+  - anagram-test/configmap-anagram-test.yaml
+  - anagram-test/deployment-anagram-test.yaml
+  - anagram-test/service-anagram-test.yaml
+  - anagram-test/autoscaler-anagram-test.yaml

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: anagram-test-configmap
+  namespace: anagram-test-dev
+data:
+  DICTIONARY_URL: "https://api.dictionaryapi.dev/api/v2/entries/en"
